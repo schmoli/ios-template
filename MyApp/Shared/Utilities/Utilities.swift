@@ -1,68 +1,31 @@
 // Utilities
 //
-// TODO: Add utility functions and helpers as needed.
+// Intent: Provide reusable helper functions and utilities used across features.
 //
-// ## What Goes Here
+// This directory is for general-purpose code that doesn't belong in a specific feature
+// or core system. Keep utilities focused, testable, and independent of UI.
 //
-// Helper functions and utilities that don't fit in other categories:
-// - String formatting helpers
-// - Date/time utilities
+// Common utilities you might add here:
+// - String formatting and manipulation
+// - Date/time helpers
 // - Validation functions
 // - File management helpers
-// - General-purpose algorithms
+// - Mathematical or algorithmic helpers
+// - Type conversions and transformations
 //
-// ## Examples
+// Design decisions you'll make:
+// - Whether to use static methods, free functions, or extensions
+// - How to handle Swift 6 concurrency (Sendable conformance, @MainActor)
+// - Naming conventions for discoverability
+// - Whether utilities should be pure functions or stateful
 //
-// ```swift
-// // DateFormatters.swift
-// import Foundation
+// Guidelines:
+// - Prefer extensions over utility classes when it makes sense
+// - Keep utilities pure (no side effects) when possible
+// - Consider Swift 6 concurrency requirements (Sendable, isolation)
+// - Put UI-specific utilities in Shared/Extensions instead
 //
-// enum DateFormatters {
-//     static let iso8601: ISO8601DateFormatter = {
-//         let formatter = ISO8601DateFormatter()
-//         return formatter
-//     }()
-//
-//     static let display: DateFormatter = {
-//         let formatter = DateFormatter()
-//         formatter.dateStyle = .medium
-//         formatter.timeStyle = .short
-//         return formatter
-//     }()
-// }
-// ```
-//
-// ```swift
-// // Validators.swift
-// import Foundation
-//
-// enum Validators {
-//     static func isValidEmail(_ email: String) -> Bool {
-//         let pattern = #"^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$"#
-//         let predicate = NSPredicate(format: "SELF MATCHES[c] %@", pattern)
-//         return predicate.evaluate(with: email)
-//     }
-// }
-// ```
-//
-// ## When to Add This
-//
-// Add utilities when you have:
-// - Repeated logic across features
-// - Pure functions with no UI dependencies
-// - Helper code that doesn't belong in specific features
-//
-// ## Guidelines
-//
-// - Keep utilities **pure** (no side effects when possible)
-// - Make utilities **Sendable** for Swift 6 concurrency
-// - Prefer extensions over utility classes when appropriate
-// - Document non-obvious behavior
-//
-// ## See Also
-//
-// - Extensions: `Shared/Extensions/` for View/Color extensions
-// - Design System: `Shared/DesignSystem/` for UI constants
+// See Shared/Extensions/ for View and Color extensions.
 
 import Foundation
 

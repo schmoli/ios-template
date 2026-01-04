@@ -1,48 +1,25 @@
 // Networking
 //
-// TODO: Add networking layer when your app needs API communication.
+// Intent: Centralize all network communication with remote APIs and services.
 //
-// ## What Goes Here
+// This directory is for code that communicates with backend servers, third-party APIs,
+// or any remote data sources. Keep networking logic separate from business logic and UI.
 //
-// - APIClient.swift - HTTP client with async/await
-// - APIRequest.swift - Request protocol/types
-// - APIResponse.swift - Response types
-// - APIError.swift - Network error handling
-// - NetworkMonitor.swift - Reachability monitoring
+// Common components you might add here:
+// - API client for making HTTP requests
+// - Request/response models specific to your API
+// - Authentication and token management
+// - Error handling for network failures
+// - Network reachability monitoring
 //
-// ## Example Structure
+// Design decisions you'll make:
+// - Which networking library to use (URLSession, Alamofire, custom)
+// - How to structure requests and endpoints
+// - Authentication strategy (tokens, OAuth, certificates)
+// - Caching and offline support approach
+// - Error handling patterns
 //
-// ```swift
-// // APIClient.swift
-// import Foundation
-//
-// actor APIClient {
-//     private let session: URLSession
-//     private let baseURL: URL
-//
-//     init(baseURL: URL, session: URLSession = .shared) {
-//         self.baseURL = baseURL
-//         self.session = session
-//     }
-//
-//     func request<T: Decodable>(_ endpoint: String) async throws -> T {
-//         // Implementation
-//     }
-// }
-// ```
-//
-// ## When to Add This
-//
-// Add networking when you need to:
-// - Fetch data from remote APIs
-// - Upload/download files
-// - Authenticate users with a backend
-// - Sync data with a server
-//
-// ## See Also
-//
-// - Architecture Guide: `docs/guides/architecture.md`
-// - For examples: Search "Swift async networking" or refer to Apple's URLSession docs
+// See docs/guides/architecture.md for dependency injection patterns.
 
 import Foundation
 
