@@ -11,6 +11,6 @@ This directory contains guides and patterns for developing with this template.
 - [Commit Standards](COMMIT_STANDARDS.md) - Conventional commits and semantic versioning
 
 ## Patterns
-Common code patterns and best practices. See [patterns/.patterns-readme.md](patterns/.patterns-readme.md) for planned patterns.
+Common code patterns and best practices. See [patterns/README.md](patterns/README.md) for planned patterns.
 
 **TODO:** Document patterns as they emerge in the codebase (view models, repositories, dependency injection, etc.)
