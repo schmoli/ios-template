@@ -21,12 +21,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 **Build & Project Structure**
 - Added `*.backup` pattern to .gitignore
 - Removed orphaned `project.pbxproj.backup` file
-- Fixed Xcode build conflict with multiple README.md files by using hidden dotfiles
+- Fixed Xcode build conflict by using Swift placeholder files instead of README.md
 - Added example component `WelcomeHeader.swift` to Features/Welcome/Components
 
 **Empty Directories**
-- Added hidden README files (.networking-readme.md, .persistence-readme.md, etc.)
-- Each empty directory now has TODO documentation for future implementation
+- Added Swift placeholder files with documentation as comments:
+  - `Core/Networking/Networking.swift`
+  - `Core/Persistence/Persistence.swift`
+  - `Shared/Utilities/Utilities.swift`
+- Added `docs/patterns/README.md` for code patterns (not in Xcode project)
+- Each placeholder has TODO guidance for future implementation
 - All directories maintain Xcode build compatibility
 
 ## [0.1.0] - 2026-01-04
