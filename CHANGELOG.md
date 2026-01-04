@@ -7,6 +7,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-01-04
+
+### Fixed
+
+**Documentation**
+- Added Commit Standards to docs/README guides section
+- Added Design System guide to main README Documentation section
+- Updated CHANGELOG GitHub URLs to schmoli/ios-template
+- Added content to docs/patterns section with TODO marker
+- Verified all doc cross-references are valid
+
+**Build & Project Structure**
+- Added `*.backup` pattern to .gitignore
+- Removed orphaned `project.pbxproj.backup` file
+- Fixed Xcode build conflict with multiple README.md files by using hidden dotfiles
+- Added example component `WelcomeHeader.swift` to Features/Welcome/Components
+
+**Empty Directories**
+- Added hidden README files (.networking-readme.md, .persistence-readme.md, etc.)
+- Each empty directory now has TODO documentation for future implementation
+- All directories maintain Xcode build compatibility
+
 ## [0.1.0] - 2026-01-04
 
 ### Added
@@ -53,5 +75,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Pre-1.0 version: API may change in minor releases
 - Marketing version synced with git tag (v0.1.0)
 
-[Unreleased]: https://github.com/schmoli/ios-template/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/schmoli/ios-template/compare/v0.1.1...HEAD
+[0.1.1]: https://github.com/schmoli/ios-template/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/schmoli/ios-template/releases/tag/v0.1.0
