@@ -87,6 +87,7 @@ build/
 *.swp
 *.swo
 *~
+*.backup
 
 # macOS
 .DS_Store

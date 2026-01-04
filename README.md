@@ -458,8 +458,10 @@ export APP_PATH="$DERIVED_DATA_PATH/Build/Products/Debug-iphonesimulator/MyApp.a
 - **Quick Start** - This README
 - **Architecture** - `docs/guides/architecture.md` - Feature modules, patterns, Swift 6
 - **Logging** - `docs/guides/logging.md` - AppLogger usage, categories, best practices
+- **Design System** - `docs/guides/design-system.md` - Design tokens and extensions
 - **Testing** - `docs/guides/testing.md` - Swift Testing setup (TODO: Xcode config)
 - **Customization** - `docs/guides/customization.md` - Adapting the template
+- **Commit Standards** - `docs/COMMIT_STANDARDS.md` - Conventional commits, semantic versioning
 
 ## Next Steps After Setup
 
