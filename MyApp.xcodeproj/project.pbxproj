@@ -8,26 +8,29 @@
 
 /* Begin PBXBuildFile section */
 		1A000001 /* MyAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A000002 /* MyAppApp.swift */; };
-		1A000003 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A000004 /* ContentView.swift */; };
 		1A000005 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A000006 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1A000000 /* MyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A000002 /* MyAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAppApp.swift; sourceTree = "<group>"; };
-		1A000004 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1A000006 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		FA05B3312F0AE8B800BDC226 /* Views */ = {
+		FA05B3402F0AE9A000BDC226 /* Core */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Views;
+			path = Core;
 			sourceTree = "<group>";
 		};
-		FA05B3352F0AE8F800BDC226 /* Models */ = {
+		FA05B3412F0AE9A100BDC226 /* Features */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Models;
+			path = Features;
+			sourceTree = "<group>";
+		};
+		FA05B3422F0AE9A200BDC226 /* Shared */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Shared;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -54,10 +57,10 @@
 		1A000009 /* MyApp */ = {
 			isa = PBXGroup;
 			children = (
-				FA05B3352F0AE8F800BDC226 /* Models */,
-				FA05B3312F0AE8B800BDC226 /* Views */,
+				FA05B3402F0AE9A000BDC226 /* Core */,
+				FA05B3412F0AE9A100BDC226 /* Features */,
+				FA05B3422F0AE9A200BDC226 /* Shared */,
 				1A000002 /* MyAppApp.swift */,
-				1A000004 /* ContentView.swift */,
 				1A000006 /* Assets.xcassets */,
 			);
 			path = MyApp;
@@ -87,8 +90,9 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				FA05B3312F0AE8B800BDC226 /* Views */,
-				FA05B3352F0AE8F800BDC226 /* Models */,
+				FA05B3402F0AE9A000BDC226 /* Core */,
+				FA05B3412F0AE9A100BDC226 /* Features */,
+				FA05B3422F0AE9A200BDC226 /* Shared */,
 			);
 			name = MyApp;
 			productName = MyApp;
@@ -145,7 +149,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A000003 /* ContentView.swift in Sources */,
 				1A000001 /* MyAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
