@@ -1,25 +1,69 @@
 # MyApp - iOS 26 Template Project
 
-Modern iOS app template targeting iOS 26 with best practices and CLI-first development workflow.
+Production-ready iOS template with Swift 6, feature-based architecture, and automation scripts.
 
-## Overview
+## Quick Start
 
-This project serves as a template for creating new iOS apps with:
-- iOS 26 SDK support (Xcode 26.2+)
-- SwiftUI lifecycle
-- Swift 6.0 with strict concurrency
-- Organized project structure (Views, Models)
-- Built-in logging with `os.log`
-- CLI-first workflow (no Xcode IDE required)
+Get started in 60 seconds:
 
-## Future Vision
+```bash
+# 1. Clone this template
+git clone <your-template-repo> YourApp
+cd YourApp
 
-**App Template System**: Clone this repo for new projects with automated customization:
-- Replace bundle identifier: `com.example.MyApp` → `com.yourcompany.YourApp`
-- Update project name throughout file structure
-- Customize team ID and signing
-- Script-driven setup for consistency
-- Agent-compatible initialization
+# 2. Bootstrap environment
+./scripts/bootstrap.sh
+
+# 3. Customize for your project
+./scripts/setup.sh
+# → Prompts for: App Name, Bundle ID
+
+# 4. Build and run
+./scripts/build.sh
+./scripts/install.sh
+```
+
+## What's Included
+
+### ✅ Core Infrastructure
+- **Logging System** - Type-safe AppLogger with categories (`Core/Logging/`)
+- **Feature Architecture** - Feature-based organization (`Features/`)
+- **Design System** - Reusable components and tokens (`Shared/`)
+- **Swift 6 Strict Concurrency** - Modern async/await patterns
+- **Build Scripts** - Automated build, test, install
+
+### ✅ Documentation
+- **Architecture Guide** - Feature modules, dependency injection, patterns
+- **Logging Guide** - Using AppLogger, log levels, viewing logs
+- **Testing Guide** - Swift Testing setup (⚠️ TODO: needs Xcode config)
+- **Customization Guide** - How to adapt this template
+
+### ✅ Development Tools
+- `scripts/build.sh` - Build for simulator
+- `scripts/test.sh` - Run tests (TODO: test target config)
+- `scripts/install.sh` - Install and launch on simulator
+- `scripts/bootstrap.sh` - Set up development environment
+- `scripts/setup.sh` - Customize template for your project
+
+### 📋 TODO (Add When Needed)
+- Networking layer (`Core/Networking/`)
+- Persistence layer (`Core/Persistence/`)
+- Test target configuration in Xcode
+
+## Template Philosophy
+
+**Included:** Essential structure every app needs
+- Feature-based architecture
+- Centralized logging
+- Swift 6 concurrency patterns
+- Build automation
+
+**Not Included:** Domain-specific code you'll customize
+- API client (your endpoints are unique)
+- Data models (your domain is unique)
+- Feature implementations (your features are unique)
+
+**Why:** Start fast with solid foundation, add what you need when you need it. YAGNI respected.
 
 ## Prerequisites
 
@@ -32,24 +76,38 @@ This project serves as a template for creating new iOS apps with:
 ```
 MyApp/
 ├── MyApp/
-│   ├── MyAppApp.swift          # App entry point with startup logging
-│   ├── ContentView.swift        # Main view
-│   ├── Views/
-│   │   └── Components/
-│   │       └── GradientBackground.swift
-│   ├── Models/
-│   │   └── DesignConstants.swift
-│   └── Assets.xcassets/        # Asset catalog
-├── MyApp.xcodeproj/            # Xcode project
-└── build/                      # Build output (gitignored)
+│   ├── MyAppApp.swift              # App entry point
+│   ├── Core/                       # Foundation systems
+│   │   ├── Logging/                # AppLogger, LogCategory
+│   │   ├── Networking/             # TODO: Add API client
+│   │   └── Persistence/            # TODO: Add data storage
+│   ├── Features/                   # Feature modules
+│   │   └── Welcome/                # Example feature
+│   │       ├── WelcomeView.swift
+│   │       └── Components/
+│   ├── Shared/                     # Reusable code
+│   │   ├── Components/             # UI components
+│   │   ├── DesignSystem/           # Design tokens
+│   │   ├── Extensions/             # Swift extensions
+│   │   └── Utilities/              # Helpers
+│   └── Assets.xcassets/
+├── MyAppTests/                     # TODO: Configure in Xcode
+├── docs/                           # Documentation
+│   ├── guides/                     # How-to guides
+│   └── patterns/                   # Code patterns
+├── scripts/                        # Build automation
+└── MyApp.xcodeproj/
+
 ```
+
+**See:** `docs/guides/architecture.md` for detailed architecture explanation.
 
 ## Build Settings
 
-- **Bundle ID**: `com.example.MyApp`
+- **Bundle ID**: `com.example.MyApp` (change with `setup.sh`)
 - **Deployment Target**: iOS 26.0
 - **Swift Version**: 6.0
-- **Team ID**: `9C77FVAH99` (update for your team)
+- **Concurrency**: Strict mode (complete checking)
 
 ---
 
@@ -395,30 +453,38 @@ export APP_PATH="$DERIVED_DATA_PATH/Build/Products/Debug-iphonesimulator/MyApp.a
 
 ---
 
-## Future Template Features
+## Documentation
 
-### Planned Enhancements
+- **Quick Start** - This README
+- **Architecture** - `docs/guides/architecture.md` - Feature modules, patterns, Swift 6
+- **Logging** - `docs/guides/logging.md` - AppLogger usage, categories, best practices
+- **Design System** - `docs/guides/design-system.md` - Design tokens and extensions
+- **Testing** - `docs/guides/testing.md` - Swift Testing setup (TODO: Xcode config)
+- **Customization** - `docs/guides/customization.md` - Adapting the template
+- **Commit Standards** - `docs/COMMIT_STANDARDS.md` - Conventional commits, semantic versioning
 
-- **Setup Script**: `./setup.sh --bundle-id com.company.app --name MyApp`
-- **CI/CD Integration**: GitHub Actions workflow for automated builds
-- **Testing Suite**: XCTest integration with sample UI tests
-- **Code Quality**: SwiftLint configuration
-- **Documentation**: DocC integration for API docs
-- **Fastlane**: Lane for screenshots, beta deployment
-- **Design System**: Expanded DesignConstants and theme support
-- **Networking Layer**: Template API client with async/await
-- **Persistence**: SwiftData models and migration examples
+## Next Steps After Setup
 
-### Template Customization Points
+1. **Update WelcomeView** - Replace with your actual welcome screen
+2. **Add Your First Feature** - Create `Features/YourFeature/YourFeatureView.swift`
+3. **Add Networking (If Needed)** - Implement in `Core/Networking/`
+4. **Add Persistence (If Needed)** - Implement in `Core/Persistence/`
+5. **Configure Tests** - Manual Xcode setup (see `docs/guides/testing.md`)
 
-When cloning for new projects, update:
+**See:** `docs/guides/customization.md` for detailed next steps.
 
-1. **Bundle Identifier**: `com.example.MyApp` → `com.yourcompany.YourApp`
-2. **Team ID**: `9C77FVAH99` in `project.pbxproj`
-3. **App Name**: `MyApp` throughout project
-4. **Subsystem**: `com.example.MyApp` in logging code
-5. **Display Name**: Info.plist configuration
-6. **Assets**: Replace AppIcon and AccentColor
+## Future Enhancements
+
+Optional additions for production apps:
+
+- ✅ **Setup Script** - Implemented in `scripts/setup.sh`
+- ✅ **Feature Architecture** - Implemented
+- ✅ **Documentation System** - Guides in `docs/`
+- ✅ **Build Automation** - Scripts in `scripts/`
+- 📋 **CI/CD Integration** - GitHub Actions workflow
+- 📋 **Code Quality** - SwiftLint configuration
+- 📋 **DocC Integration** - API documentation
+- 📋 **Fastlane** - Screenshot/beta deployment lanes
 
 ---
 

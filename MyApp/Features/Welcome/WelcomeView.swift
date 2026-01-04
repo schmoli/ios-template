@@ -1,6 +1,7 @@
 import SwiftUI
 
-struct ContentView: View {
+/// Main welcome screen shown on app launch.
+struct WelcomeView: View {
     var body: some View {
         ZStack {
             GradientBackground()
@@ -18,6 +19,6 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    WelcomeView()
         .preferredColorScheme(.dark)
 }
