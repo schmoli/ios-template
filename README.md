@@ -27,6 +27,7 @@ cd YourApp
 
 ### ✅ Core Infrastructure
 - **Logging System** - Type-safe AppLogger with categories (`Core/Logging/`)
+- **Networking Layer** - Protocol-based with retry/circuit breaking (`Core/Networking/`)
 - **Feature Architecture** - Feature-based organization (`Features/`)
 - **Design System** - Reusable components and tokens (`Shared/`)
 - **Swift 6 Strict Concurrency** - Modern async/await patterns
@@ -35,6 +36,7 @@ cd YourApp
 ### ✅ Documentation
 - **Architecture Guide** - Feature modules, dependency injection, patterns
 - **Logging Guide** - Using AppLogger, log levels, viewing logs
+- **Networking Guide** - Using APIClient, handling errors, testing
 - **Testing Guide** - Swift Testing setup (⚠️ TODO: needs Xcode config)
 - **Customization Guide** - How to adapt this template
 
@@ -46,7 +48,6 @@ cd YourApp
 - `scripts/setup.sh` - Customize template for your project
 
 ### 📋 TODO (Add When Needed)
-- Networking layer (`Core/Networking/`)
 - Persistence layer (`Core/Persistence/`)
 - Test target configuration in Xcode
 
@@ -79,7 +80,7 @@ MyApp/
 │   ├── MyAppApp.swift              # App entry point
 │   ├── Core/                       # Foundation systems
 │   │   ├── Logging/                # AppLogger, LogCategory
-│   │   ├── Networking/             # TODO: Add API client
+│   │   ├── Networking/             # APIClient, NetworkService, retry/circuit breaking
 │   │   └── Persistence/            # TODO: Add data storage
 │   ├── Features/                   # Feature modules
 │   │   └── Welcome/                # Example feature
@@ -458,6 +459,7 @@ export APP_PATH="$DERIVED_DATA_PATH/Build/Products/Debug-iphonesimulator/MyApp.a
 - **Quick Start** - This README
 - **Architecture** - `docs/guides/architecture.md` - Feature modules, patterns, Swift 6
 - **Logging** - `docs/guides/logging.md` - AppLogger usage, categories, best practices
+- **Networking** - `docs/guides/networking.md` - APIClient, retry/circuit breaking, error handling
 - **Design System** - `docs/guides/design-system.md` - Design tokens and extensions
 - **Testing** - `docs/guides/testing.md` - Swift Testing setup (TODO: Xcode config)
 - **Customization** - `docs/guides/customization.md` - Adapting the template
@@ -467,7 +469,7 @@ export APP_PATH="$DERIVED_DATA_PATH/Build/Products/Debug-iphonesimulator/MyApp.a
 
 1. **Update WelcomeView** - Replace with your actual welcome screen
 2. **Add Your First Feature** - Create `Features/YourFeature/YourFeatureView.swift`
-3. **Add Networking (If Needed)** - Implement in `Core/Networking/`
+3. **Add Your API Client** - Implement in `Core/Networking/Clients/` (see `docs/guides/networking.md`)
 4. **Add Persistence (If Needed)** - Implement in `Core/Persistence/`
 5. **Configure Tests** - Manual Xcode setup (see `docs/guides/testing.md`)
 
