@@ -117,19 +117,19 @@ After customization, your project has:
 - **Extensions:** `Shared/Extensions/` - Swift extensions
 - **Utilities:** `Shared/Utilities/` - Helper functions
 
-### Testing (TODO)
+### Testing
 - **Unit Tests:** `YourAppTests/` - Swift Testing framework
 - **Test Helpers:** `YourAppTests/TestHelpers/` - Shared utilities
-- **⚠️ Manual Setup Required:** See `docs/guides/testing.md`
+- **Run Tests:** `scripts/test.sh` or Cmd+U in Xcode
 
 ### Documentation
 - **Architecture:** `docs/guides/architecture.md` - Project structure, patterns
 - **Logging:** `docs/guides/logging.md` - How to use AppLogger
-- **Testing:** `docs/guides/testing.md` - Test setup (TODO: needs Xcode config)
+- **Testing:** `docs/guides/testing.md` - Swift Testing framework setup
 
 ### Build Scripts
 - **Build:** `scripts/build.sh [Debug|Release]` - Build the app
-- **Test:** `scripts/test.sh` - Run tests (TODO: needs test target config)
+- **Test:** `scripts/test.sh` - Run tests
 - **Install:** `scripts/install.sh` - Install and launch on simulator
 - **Bootstrap:** `scripts/bootstrap.sh` - Set up development environment
 
@@ -201,14 +201,11 @@ mkdir -p YourApp/Core/Persistence
 
 Consider SwiftData for modern Swift 6 approach.
 
-### 5. Configure Tests (Manual)
+### 5. Add Tests
 
-See `docs/guides/testing.md` for test target setup in Xcode.
+Use Swift Testing framework to add tests for your features. See `docs/guides/testing.md` for patterns and examples.
 
-**TODO:** Tests require manual configuration. Run `open YourApp.xcodeproj` and:
-1. Select YourAppTests target
-2. Set Host Application to YourApp
-3. Verify Swift Version is 6.0
+Run tests: `./scripts/test.sh` or Cmd+U in Xcode
 
 ## Customization Checklist
 

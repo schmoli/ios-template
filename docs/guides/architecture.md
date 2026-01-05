@@ -157,10 +157,11 @@ struct MyView: View {
 
 ## Testing Strategy
 
-**TODO:** This template includes test infrastructure that needs manual configuration:
+This template uses Swift Testing framework:
 - Unit tests in `MyAppTests/`
 - Test helpers in `MyAppTests/TestHelpers/`
-- See test target setup in Xcode for configuration
+- Run with `./scripts/test.sh` or Cmd+U in Xcode
+- See `docs/guides/testing.md` for patterns and examples
 
 ## Navigation Patterns
 

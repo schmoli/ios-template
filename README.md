@@ -45,12 +45,12 @@ cd YourApp
 - **Biometric Auth Guide** - Face ID/Touch ID authentication flows
 - **Lifecycle Guide** - App state hooks and patterns
 - **Persistence Guide** - SwiftData models, queries, relationships
-- **Testing Guide** - Swift Testing setup (⚠️ TODO: needs Xcode config)
+- **Testing Guide** - Swift Testing framework setup
 - **Customization Guide** - How to adapt this template
 
 ### ✅ Development Tools
 - `scripts/build.sh` - Build for simulator
-- `scripts/test.sh` - Run tests (TODO: test target config)
+- `scripts/test.sh` - Run tests
 - `scripts/install.sh` - Install and launch on simulator
 - `scripts/bootstrap.sh` - Set up development environment
 - `scripts/setup.sh` - Customize template for your project
@@ -99,7 +99,7 @@ MyApp/
 │   │   ├── Extensions/             # Swift extensions
 │   │   └── Utilities/              # Helpers
 │   └── Assets.xcassets/
-├── MyAppTests/                     # TODO: Configure in Xcode
+├── MyAppTests/                     # Swift Testing tests
 ├── docs/                           # Documentation
 │   ├── guides/                     # How-to guides
 │   └── patterns/                   # Code patterns
@@ -472,7 +472,7 @@ export APP_PATH="$DERIVED_DATA_PATH/Build/Products/Debug-iphonesimulator/MyApp.a
 - **Lifecycle** - `docs/guides/lifecycle.md` - App state hooks and patterns
 - **Persistence** - `docs/guides/persistence.md` - SwiftData models, queries, relationships
 - **Design System** - `docs/guides/design-system.md` - Design tokens and extensions
-- **Testing** - `docs/guides/testing.md` - Swift Testing setup (TODO: Xcode config)
+- **Testing** - `docs/guides/testing.md` - Swift Testing framework setup
 - **Customization** - `docs/guides/customization.md` - Adapting the template
 - **Commit Standards** - `docs/COMMIT_STANDARDS.md` - Conventional commits, semantic versioning
 
@@ -483,7 +483,7 @@ export APP_PATH="$DERIVED_DATA_PATH/Build/Products/Debug-iphonesimulator/MyApp.a
 3. **Add Your API Client** - Implement in `Core/Networking/Clients/` (see `docs/guides/networking.md`)
 4. **Define Data Models** - Create SwiftData `@Model` classes (see `docs/guides/persistence.md`)
 5. **Wire Up Lifecycle** - Register app state handlers (see `docs/guides/lifecycle.md`)
-6. **Configure Tests** - Manual Xcode setup (see `docs/guides/testing.md`)
+6. **Add Tests** - Use Swift Testing framework (see `docs/guides/testing.md`)
 
 **See:** `docs/guides/customization.md` for detailed next steps.
 

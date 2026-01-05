@@ -1,8 +1,5 @@
 #!/bin/bash
 # Test script for MyApp
-#
-# TODO: Test target needs manual configuration in Xcode
-# See docs/guides/testing.md for setup instructions
 
 set -euo pipefail
 
@@ -16,9 +13,6 @@ NC='\033[0m' # No Color
 PROJECT="MyApp.xcodeproj"
 SCHEME="MyApp"
 
-echo -e "${YELLOW}⚠️  Test infrastructure requires manual setup${NC}"
-echo -e "${YELLOW}   See docs/guides/testing.md for instructions${NC}"
-echo ""
 echo -e "${GREEN}🧪 Running tests...${NC}"
 
 # Find available simulator
@@ -37,8 +31,7 @@ xcodebuild \
     -scheme "$SCHEME" \
     -destination "platform=iOS Simulator,id=${SIM_UDID}" \
     test || {
-        echo -e "${RED}❌ Tests failed or test target not configured${NC}"
-        echo -e "${YELLOW}   Run: open MyApp.xcodeproj and configure MyAppTests target${NC}"
+        echo -e "${RED}❌ Tests failed${NC}"
         exit 1
     }
 

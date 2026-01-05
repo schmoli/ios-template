@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- **setup.sh** - Template customization now reinitializes git repository
+  - Removes `.git` directory (unlinks from template repo)
+  - Creates fresh git repository with clean history
+  - Initial commit: `"chore: initialize {AppName} from iOS template"`
+  - Prevents accidental pushes to template repository
+  - Updated instructions show how to add remote
+
 ## [0.2.0] - 2026-01-05
 
 ### Added
@@ -139,12 +148,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 **Testing Infrastructure**
 - Swift Testing test files (AppLoggerTests, WelcomeViewTests, ViewTestHelpers)
-- Test target structure (requires manual Xcode configuration)
-
-### Known Issues
-
-- Test target requires manual Xcode configuration before tests can run
-- See `docs/guides/testing.md` for setup instructions
+- Test target fully configured and working
 
 ### Notes
 
