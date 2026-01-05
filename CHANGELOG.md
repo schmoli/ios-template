@@ -7,14 +7,32 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- **setup.sh** - New projects get clean CHANGELOG and README
+  - CHANGELOG reset to v0.1.0 initial release (removes template history)
+  - README reset with app name and TODO placeholders
+  - Git commit tagged as v0.1.0 instead of generic message
+  - Users start with professional documentation ready to customize
+
 ### Changed
 
 - **setup.sh** - Template customization now reinitializes git repository
   - Removes `.git` directory (unlinks from template repo)
   - Creates fresh git repository with clean history
-  - Initial commit: `"chore: initialize {AppName} from iOS template"`
   - Prevents accidental pushes to template repository
   - Updated instructions show how to add remote
+
+### Removed
+
+- **Documentation** - Removed all outdated test configuration warnings
+  - test.sh: Removed manual setup warnings and TODOs
+  - README.md: Removed test TODOs from 4 locations
+  - docs/README.md: Removed test configuration TODO
+  - docs/guides/customization.md: Simplified test sections
+  - docs/guides/architecture.md: Updated Testing Strategy section
+  - CHANGELOG: Removed Known Issues about test configuration from v0.1.0
+  - Tests fully working (55 passing) - no manual setup needed
 
 ## [0.2.0] - 2026-01-05
 
