@@ -191,16 +191,25 @@ func authenticateUser() async -> Bool {
 }
 ```
 
-## Privacy - Info.plist
+## Privacy Configuration
 
-**Required:** Add usage description to `Info.plist`:
+**Required:** Face ID usage description is already configured in the Xcode project build settings.
 
-```xml
-<key>NSFaceIDUsageDescription</key>
-<string>We use Face ID to securely access your data</string>
+The template includes this privacy key:
+```
+INFOPLIST_KEY_NSFaceIDUsageDescription = "MyApp uses Face ID to securely access your data"
 ```
 
-Without this, authentication will fail with system error.
+**After running `setup.sh`**, the message will automatically update to use your app name.
+
+**To customize the message:**
+1. Open your Xcode project
+2. Select the app target
+3. Go to Build Settings tab
+4. Search for "NSFaceIDUsageDescription"
+5. Update the value to your preferred message
+
+Without this privacy key, biometric authentication will fail with a system error.
 
 ## Architecture
 
