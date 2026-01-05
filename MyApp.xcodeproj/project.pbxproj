@@ -362,7 +362,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.1;
+				MARKETING_VERSION = 0.1.2;
 				OTHER_SWIFT_FLAGS = "-enable-testing";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.MyApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -393,7 +393,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.1;
+				MARKETING_VERSION = 0.1.2;
 				OTHER_SWIFT_FLAGS = "-enable-testing";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.MyApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";

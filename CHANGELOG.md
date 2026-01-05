@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.2] - 2026-01-04
+
+### Added
+
+**Documentation**
+- Added `.claude.md` with feature development workflow principles
+  - Prove don't promise (build, test, launch verification)
+  - Preview-driven UI iteration (dark mode first)
+  - Tests for correctness, eyes for quality
+  - Report outcomes not code
+  - Small steps always verified
+  - Ask before not after
+  - Always leave it working
+  - Testing decision criteria
+
 ## [0.1.1] - 2026-01-04
 
 ### Fixed
@@ -79,6 +94,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Pre-1.0 version: API may change in minor releases
 - Marketing version synced with git tag (v0.1.0)
 
-[Unreleased]: https://github.com/schmoli/ios-template/compare/v0.1.1...HEAD
+[Unreleased]: https://github.com/schmoli/ios-template/compare/v0.1.2...HEAD
+[0.1.2]: https://github.com/schmoli/ios-template/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/schmoli/ios-template/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/schmoli/ios-template/releases/tag/v0.1.0
