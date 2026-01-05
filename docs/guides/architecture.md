@@ -4,19 +4,22 @@
 
 ```
 MyApp/
-├── Core/               # Foundational systems
-│   ├── Logging/       # AppLogger, LogCategory
-│   ├── Networking/    # TODO: API client, networking layer
-│   └── Persistence/   # TODO: Data storage, CoreData/SwiftData
-├── Features/          # Feature modules
-│   └── Welcome/       # Welcome screen feature
+├── Core/                    # Foundational systems
+│   ├── Logging/            # AppLogger, LogCategory
+│   ├── Networking/         # APIClient, NetworkService, retry/circuit breaking
+│   ├── Security/           # SecureStorage (Keychain wrapper)
+│   ├── Authentication/     # BiometricAuth (Face ID/Touch ID)
+│   ├── Lifecycle/          # AppLifecycleManager (app state hooks)
+│   └── Persistence/        # SwiftDataPersistence (data storage)
+├── Features/               # Feature modules
+│   └── Welcome/            # Welcome screen feature
 │       └── Components/
-├── Shared/            # Reusable components
-│   ├── Components/    # UI components (GradientBackground)
-│   ├── DesignSystem/  # Design tokens (DesignConstants)
-│   ├── Extensions/    # Swift extensions
-│   └── Utilities/     # Helper functions
-└── MyAppApp.swift     # App entry point
+├── Shared/                 # Reusable components
+│   ├── Components/         # UI components (GradientBackground)
+│   ├── DesignSystem/       # Design tokens (DesignConstants)
+│   ├── Extensions/         # Swift extensions
+│   └── Utilities/          # Helper functions
+└── MyAppApp.swift          # App entry point
 ```
 
 ## Design Principles
@@ -29,10 +32,12 @@ Each feature lives in its own directory under `Features/`. This makes it easy to
 
 ### Core Systems
 Foundation code that features depend on goes in `Core/`:
-- Logging
-- Networking
-- Persistence
-- Authentication
+- **Logging** - Centralized logging with AppLogger
+- **Networking** - HTTP client with retry and circuit breaking
+- **Security** - Keychain wrapper for secure storage
+- **Authentication** - Biometric auth (Face ID/Touch ID)
+- **Lifecycle** - App state change hooks
+- **Persistence** - SwiftData wrapper for data storage
 
 ### Shared Code
 Reusable components that don't belong to a specific feature go in `Shared/`:
@@ -190,9 +195,19 @@ do {
 - Profile with Instruments before optimizing
 - Use `Task` for async work, not DispatchQueue
 
+## Core Infrastructure Available
+
+All core infrastructure is ready to use:
+- ✅ **Logging** - `docs/guides/logging.md`
+- ✅ **Networking** - `docs/guides/networking.md`
+- ✅ **Security** - `docs/guides/security.md`
+- ✅ **Biometric Auth** - `docs/guides/biometric-auth.md`
+- ✅ **Lifecycle** - `docs/guides/lifecycle.md`
+- ✅ **Persistence** - `docs/guides/persistence.md`
+
 ## Next Steps
 
-- Add networking layer in `Core/Networking/`
-- Add persistence in `Core/Persistence/`
 - Create feature modules in `Features/`
+- Add your API clients in `Core/Networking/Clients/`
+- Define your data models for SwiftData
 - Build out design system in `Shared/DesignSystem/`

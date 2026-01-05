@@ -28,6 +28,10 @@ cd YourApp
 ### ✅ Core Infrastructure
 - **Logging System** - Type-safe AppLogger with categories (`Core/Logging/`)
 - **Networking Layer** - Protocol-based with retry/circuit breaking (`Core/Networking/`)
+- **Secure Storage** - Keychain wrapper for tokens/credentials (`Core/Security/`)
+- **Biometric Auth** - Face ID/Touch ID wrapper (`Core/Authentication/`)
+- **App Lifecycle** - Centralized app state hooks (`Core/Lifecycle/`)
+- **Persistence** - SwiftData wrapper for data storage (`Core/Persistence/`)
 - **Feature Architecture** - Feature-based organization (`Features/`)
 - **Design System** - Reusable components and tokens (`Shared/`)
 - **Swift 6 Strict Concurrency** - Modern async/await patterns
@@ -37,6 +41,10 @@ cd YourApp
 - **Architecture Guide** - Feature modules, dependency injection, patterns
 - **Logging Guide** - Using AppLogger, log levels, viewing logs
 - **Networking Guide** - Using APIClient, handling errors, testing
+- **Security Guide** - Keychain storage for tokens/credentials
+- **Biometric Auth Guide** - Face ID/Touch ID authentication flows
+- **Lifecycle Guide** - App state hooks and patterns
+- **Persistence Guide** - SwiftData models, queries, relationships
 - **Testing Guide** - Swift Testing setup (⚠️ TODO: needs Xcode config)
 - **Customization Guide** - How to adapt this template
 
@@ -46,10 +54,6 @@ cd YourApp
 - `scripts/install.sh` - Install and launch on simulator
 - `scripts/bootstrap.sh` - Set up development environment
 - `scripts/setup.sh` - Customize template for your project
-
-### 📋 TODO (Add When Needed)
-- Persistence layer (`Core/Persistence/`)
-- Test target configuration in Xcode
 
 ## Template Philosophy
 
@@ -81,7 +85,10 @@ MyApp/
 │   ├── Core/                       # Foundation systems
 │   │   ├── Logging/                # AppLogger, LogCategory
 │   │   ├── Networking/             # APIClient, NetworkService, retry/circuit breaking
-│   │   └── Persistence/            # TODO: Add data storage
+│   │   ├── Security/               # SecureStorage (Keychain wrapper)
+│   │   ├── Authentication/         # BiometricAuth (Face ID/Touch ID)
+│   │   ├── Lifecycle/              # AppLifecycleManager (app state hooks)
+│   │   └── Persistence/            # SwiftDataPersistence (data storage)
 │   ├── Features/                   # Feature modules
 │   │   └── Welcome/                # Example feature
 │   │       ├── WelcomeView.swift
@@ -460,6 +467,10 @@ export APP_PATH="$DERIVED_DATA_PATH/Build/Products/Debug-iphonesimulator/MyApp.a
 - **Architecture** - `docs/guides/architecture.md` - Feature modules, patterns, Swift 6
 - **Logging** - `docs/guides/logging.md` - AppLogger usage, categories, best practices
 - **Networking** - `docs/guides/networking.md` - APIClient, retry/circuit breaking, error handling
+- **Security** - `docs/guides/security.md` - Keychain storage for tokens/credentials
+- **Biometric Auth** - `docs/guides/biometric-auth.md` - Face ID/Touch ID authentication
+- **Lifecycle** - `docs/guides/lifecycle.md` - App state hooks and patterns
+- **Persistence** - `docs/guides/persistence.md` - SwiftData models, queries, relationships
 - **Design System** - `docs/guides/design-system.md` - Design tokens and extensions
 - **Testing** - `docs/guides/testing.md` - Swift Testing setup (TODO: Xcode config)
 - **Customization** - `docs/guides/customization.md` - Adapting the template
@@ -470,8 +481,9 @@ export APP_PATH="$DERIVED_DATA_PATH/Build/Products/Debug-iphonesimulator/MyApp.a
 1. **Update WelcomeView** - Replace with your actual welcome screen
 2. **Add Your First Feature** - Create `Features/YourFeature/YourFeatureView.swift`
 3. **Add Your API Client** - Implement in `Core/Networking/Clients/` (see `docs/guides/networking.md`)
-4. **Add Persistence (If Needed)** - Implement in `Core/Persistence/`
-5. **Configure Tests** - Manual Xcode setup (see `docs/guides/testing.md`)
+4. **Define Data Models** - Create SwiftData `@Model` classes (see `docs/guides/persistence.md`)
+5. **Wire Up Lifecycle** - Register app state handlers (see `docs/guides/lifecycle.md`)
+6. **Configure Tests** - Manual Xcode setup (see `docs/guides/testing.md`)
 
 **See:** `docs/guides/customization.md` for detailed next steps.
 
