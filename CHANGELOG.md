@@ -12,7 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 **Documentation**
-- Added `.claude.md` with feature development workflow principles
+- Added `CLAUDE.md` with feature development workflow principles
   - Prove don't promise (build, test, launch verification)
   - Preview-driven UI iteration (dark mode first)
   - Tests for correctness, eyes for quality
