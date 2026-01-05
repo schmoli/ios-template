@@ -108,19 +108,106 @@ if [ -d "${NEW_NAME}.xcodeproj/xcshareddata/xcschemes" ]; then
     fi
 fi
 
-# 7. Reinitialize git repository
+# 7. Clean up CHANGELOG for new project
+echo -e "${BLUE}→ Resetting CHANGELOG...${NC}"
+if [ -f "CHANGELOG.md" ]; then
+    cat > CHANGELOG.md <<EOF
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [Unreleased]
+
+## [0.1.0] - $(date +%Y-%m-%d)
+
+### Added
+
+- Initial release of ${NEW_NAME}
+- Project structure based on iOS Template
+- Core infrastructure ready for feature development
+
+[Unreleased]: https://github.com/yourusername/${NEW_NAME}/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/yourusername/${NEW_NAME}/releases/tag/v0.1.0
+EOF
+fi
+
+# 8. Clean up README for new project
+echo -e "${BLUE}→ Resetting README...${NC}"
+if [ -f "README.md" ]; then
+    cat > README.md <<EOF
+# ${NEW_NAME}
+
+**TODO:** Add a brief description of your app here.
+
+## Features
+
+**TODO:** List key features of your app.
+
+## Getting Started
+
+### Prerequisites
+
+- Xcode 16.0+
+- iOS 26.0+
+- macOS with Apple Silicon or Intel
+
+### Building
+
+\`\`\`bash
+./scripts/build.sh
+\`\`\`
+
+### Running
+
+\`\`\`bash
+./scripts/install.sh
+\`\`\`
+
+### Testing
+
+\`\`\`bash
+./scripts/test.sh
+\`\`\`
+
+## Project Structure
+
+Built with feature-based architecture:
+- \`${NEW_NAME}/Core/\` - Core infrastructure (networking, security, persistence)
+- \`${NEW_NAME}/Features/\` - Feature modules
+- \`${NEW_NAME}/Shared/\` - Reusable components and utilities
+- \`${NEW_NAME}Tests/\` - Swift Testing test suite
+
+## Documentation
+
+See \`docs/guides/\` for detailed documentation on:
+- Architecture and patterns
+- Core infrastructure usage
+- Testing strategies
+- Development workflow
+
+## License
+
+**TODO:** Add license information.
+EOF
+fi
+
+# 9. Reinitialize git repository
 echo -e "${BLUE}→ Reinitializing git repository...${NC}"
 if [ -d ".git" ]; then
     rm -rf .git
     git init -q
     git add -A
-    git commit -q -m "chore: initialize ${NEW_NAME} from iOS template"
-    echo -e "${GREEN}   Created fresh git repository with initial commit${NC}"
+    git commit -q -m "chore: initial release v0.1.0"
+    git tag -a v0.1.0 -m "Initial release of ${NEW_NAME}"
+    echo -e "${GREEN}   Created fresh git repository at v0.1.0${NC}"
 else
     echo -e "${YELLOW}   No .git directory found, skipping${NC}"
 fi
 
-# 8. Clean build artifacts
+# 10. Clean build artifacts
 echo -e "${BLUE}→ Cleaning build artifacts...${NC}"
 rm -rf build/
 rm -rf DerivedData/
