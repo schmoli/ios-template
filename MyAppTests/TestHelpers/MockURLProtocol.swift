@@ -4,7 +4,7 @@ import Foundation
 final class MockURLProtocol: URLProtocol {
 
     /// Handler called for each request. Return response and data, or throw error.
-    static var requestHandler: ((URLRequest) throws -> (HTTPURLResponse, Data?))?
+    nonisolated(unsafe) static var requestHandler: ((URLRequest) throws -> (HTTPURLResponse, Data?))?
 
     override class func canInit(with request: URLRequest) -> Bool {
         return true

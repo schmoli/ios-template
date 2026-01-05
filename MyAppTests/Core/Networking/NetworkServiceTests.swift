@@ -2,7 +2,7 @@ import Testing
 import Foundation
 @testable import MyApp
 
-@Suite("NetworkService Tests")
+@Suite("NetworkService Tests", .serialized)
 struct NetworkServiceTests {
 
     /// Create test URLSession configured with MockURLProtocol
@@ -42,11 +42,21 @@ struct NetworkServiceTests {
 
     @Test("Retries network failures up to 3 times")
     func testRetriesNetworkFailures() async throws {
-        var attemptCount = 0
+        final class Counter: @unchecked Sendable {
+            let lock = NSLock()
+            var value = 0
+            func increment() -> Int {
+                lock.lock()
+                defer { lock.unlock() }
+                value += 1
+                return value
+            }
+        }
+        let attemptCounter = Counter()
 
         MockURLProtocol.requestHandler = { _ in
-            attemptCount += 1
-            if attemptCount < 3 {
+            let count = attemptCounter.increment()
+            if count < 3 {
                 throw URLError(.networkConnectionLost)
             }
             let response = HTTPURLResponse(
@@ -65,15 +75,25 @@ struct NetworkServiceTests {
         struct EmptyResponse: Codable {}
         _ = try await service.execute(request) as EmptyResponse
 
-        #expect(attemptCount == 3)
+        #expect(attemptCounter.value == 3)
     }
 
     @Test("Does not retry HTTP error responses")
     func testDoesNotRetryHTTPErrors() async throws {
-        var attemptCount = 0
+        final class Counter: @unchecked Sendable {
+            let lock = NSLock()
+            var value = 0
+            func increment() -> Int {
+                lock.lock()
+                defer { lock.unlock() }
+                value += 1
+                return value
+            }
+        }
+        let attemptCounter = Counter()
 
         MockURLProtocol.requestHandler = { _ in
-            attemptCount += 1
+            _ = attemptCounter.increment()
             let response = HTTPURLResponse(
                 url: URL(string: "https://api.example.com/test")!,
                 statusCode: 404,
@@ -93,7 +113,7 @@ struct NetworkServiceTests {
             let _: EmptyResponse = try await service.execute(request)
         }
 
-        #expect(attemptCount == 1)
+        #expect(attemptCounter.value == 1)
     }
 
     @Test("Throws circuitBreakerOpen when circuit is open")
@@ -111,8 +131,13 @@ struct NetworkServiceTests {
 
         struct EmptyResponse: Codable {}
 
-        await #expect(throws: APIError.circuitBreakerOpen) {
+        await #expect {
             let _: EmptyResponse = try await service.execute(request)
+        } throws: { error in
+            guard case APIError.circuitBreakerOpen = error else {
+                return false
+            }
+            return true
         }
     }
 
@@ -136,8 +161,13 @@ struct NetworkServiceTests {
             let field: String
         }
 
-        await #expect(throws: APIError.decodingFailure) {
+        await #expect {
             let _: TestResponse = try await service.execute(request)
+        } throws: { error in
+            guard case APIError.decodingFailure = error else {
+                return false
+            }
+            return true
         }
     }
 }
