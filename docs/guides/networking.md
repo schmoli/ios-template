@@ -109,7 +109,7 @@ catch let error as APIError {
 
 ## Testing Your API Client
 
-See `docs/examples/WeatherAPIClient.swift` for a complete example with tests.
+See `docs/examples/WeatherAPIClient.swift` for a complete example. For testing patterns, see `MyAppTests/Core/Networking/NetworkServiceTests.swift`.
 
 ### Using MockURLProtocol
 
