@@ -64,21 +64,27 @@ replace_in_file() {
     fi
 }
 
-# 1. Update source files
+# 1. Update source files (bundle ID first, then app name)
 echo -e "${BLUE}→ Updating source files...${NC}"
 find . -type f \( -name "*.swift" -o -name "*.md" -o -name "*.sh" \) -not -path "./.git/*" -not -path "./build/*" | while read -r file; do
-    replace_in_file "$file" "$CURRENT_NAME" "$NEW_NAME"
     replace_in_file "$file" "$CURRENT_BUNDLE" "$NEW_BUNDLE"
+    replace_in_file "$file" "$CURRENT_NAME" "$NEW_NAME"
 done
 
-# 2. Update Xcode project file
+# 2. Update Xcode project file (bundle ID first, then app name)
 echo -e "${BLUE}→ Updating Xcode project...${NC}"
 if [ -f "MyApp.xcodeproj/project.pbxproj" ]; then
-    replace_in_file "MyApp.xcodeproj/project.pbxproj" "$CURRENT_NAME" "$NEW_NAME"
     replace_in_file "MyApp.xcodeproj/project.pbxproj" "$CURRENT_BUNDLE" "$NEW_BUNDLE"
+    replace_in_file "MyApp.xcodeproj/project.pbxproj" "$CURRENT_NAME" "$NEW_NAME"
 fi
 
-# 3. Rename directories
+# 3. Rename main app file
+echo -e "${BLUE}→ Renaming main app file...${NC}"
+if [ -f "MyApp/MyAppApp.swift" ]; then
+    mv "MyApp/MyAppApp.swift" "MyApp/${NEW_NAME}App.swift"
+fi
+
+# 4. Rename directories
 echo -e "${BLUE}→ Renaming directories...${NC}"
 if [ -d "MyApp" ]; then
     mv "MyApp" "${NEW_NAME}"
@@ -88,13 +94,13 @@ if [ -d "MyAppTests" ]; then
     mv "MyAppTests" "${NEW_NAME}Tests"
 fi
 
-# 4. Rename Xcode project
+# 5. Rename Xcode project
 echo -e "${BLUE}→ Renaming Xcode project...${NC}"
 if [ -d "MyApp.xcodeproj" ]; then
     mv "MyApp.xcodeproj" "${NEW_NAME}.xcodeproj"
 fi
 
-# 5. Update scheme file (if exists)
+# 6. Update scheme file (if exists)
 if [ -d "${NEW_NAME}.xcodeproj/xcshareddata/xcschemes" ]; then
     if [ -f "${NEW_NAME}.xcodeproj/xcshareddata/xcschemes/MyApp.xcscheme" ]; then
         mv "${NEW_NAME}.xcodeproj/xcshareddata/xcschemes/MyApp.xcscheme" \
@@ -102,7 +108,7 @@ if [ -d "${NEW_NAME}.xcodeproj/xcshareddata/xcschemes" ]; then
     fi
 fi
 
-# 6. Clean build artifacts
+# 7. Clean build artifacts
 echo -e "${BLUE}→ Cleaning build artifacts...${NC}"
 rm -rf build/
 rm -rf DerivedData/
