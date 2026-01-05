@@ -7,6 +7,64 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-01-05
+
+### Added
+
+**Core Infrastructure**
+- **SecureStorage** - Keychain wrapper for secure token/credential storage
+  - `SecureStorageProtocol` with save/load/delete/exists operations
+  - `KeychainSecureStorage` actor-based implementation
+  - `MockSecureStorage` for testing
+  - Type-safe with Codable support
+  - Comprehensive error types
+  - 6 tests covering all operations
+
+- **BiometricAuth** - Face ID/Touch ID/Optic ID authentication wrapper
+  - `BiometricAuthProtocol` with authenticate/availability checks
+  - `LocalBiometricAuth` implementation wrapping LocalAuthentication
+  - `MockBiometricAuth` for testing
+  - Biometric type detection (Face ID/Touch ID/Optic ID)
+  - Structured error handling
+  - 6 tests covering all biometric types
+
+- **AppLifecycle** - Centralized app state change hooks
+  - `AppLifecycleProtocol` with onForeground/onBackground/onInactive/onAppear
+  - `AppLifecycleManager` observing ScenePhase changes
+  - `MockAppLifecycle` for testing
+  - Parallel handler execution
+  - First-appear detection
+  - 7 tests using Swift Testing confirmation pattern
+
+- **Persistence** - SwiftData wrapper for data storage
+  - `PersistenceProtocol` exposing ModelContainer
+  - `SwiftDataPersistence` actor-based implementation
+  - `MockPersistence` with in-memory container for testing
+  - File-backed storage with in-memory fallback
+  - Thread-safe save operations
+  - 4 tests with @Model integration
+
+**Documentation**
+- `docs/guides/security.md` - Keychain usage, error handling, migration patterns
+- `docs/guides/biometric-auth.md` - Biometric flows, error cases, privacy setup
+- `docs/guides/lifecycle.md` - App state hooks, common patterns, testing
+- `docs/guides/persistence.md` - SwiftData models, queries, relationships, CRUD
+
+### Changed
+
+- Updated `docs/guides/architecture.md` with all 4 new Core systems
+- Updated `README.md` Core Infrastructure and Documentation sections
+
+### Technical Details
+
+- All systems follow protocol-based pattern (Protocol → Implementation → Mock → Tests)
+- Swift 6 strict concurrency compliant throughout
+- Actor isolation for thread safety
+- Sendable conformance for all shared types
+- 26 new Swift files across 4 Core systems
+- 10 new test files with 23 new tests (55 total passing)
+- 1,484+ lines of documentation
+
 ## [0.1.2] - 2026-01-04
 
 ### Added
@@ -94,7 +152,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Pre-1.0 version: API may change in minor releases
 - Marketing version synced with git tag (v0.1.0)
 
-[Unreleased]: https://github.com/schmoli/ios-template/compare/v0.1.2...HEAD
+[Unreleased]: https://github.com/schmoli/ios-template/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/schmoli/ios-template/compare/v0.1.2...v0.2.0
 [0.1.2]: https://github.com/schmoli/ios-template/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/schmoli/ios-template/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/schmoli/ios-template/releases/tag/v0.1.0
