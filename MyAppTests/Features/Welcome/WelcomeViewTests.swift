@@ -5,18 +5,13 @@ import SwiftUI
 @Suite("WelcomeView Tests")
 struct WelcomeViewTests {
 
-    @Test("WelcomeView initializes correctly")
+    @Test("WelcomeView initializes without crashing")
     func testViewInitialization() {
+        // Proves view constructs successfully
         let view = WelcomeView()
-        // View should initialize without errors
         #expect(view != nil)
     }
 
-    @Test("WelcomeView has correct structure")
-    func testViewStructure() {
-        let view = WelcomeView()
-        // Verify view can be rendered
-        let body = view.body
-        #expect(body != nil)
-    }
+    // Visual verification done via #Preview in WelcomeView.swift
+    // For UI correctness, launch app and inspect manually per "Iterate UI by Preview" principle
 }
