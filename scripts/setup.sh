@@ -108,7 +108,19 @@ if [ -d "${NEW_NAME}.xcodeproj/xcshareddata/xcschemes" ]; then
     fi
 fi
 
-# 7. Clean build artifacts
+# 7. Reinitialize git repository
+echo -e "${BLUE}→ Reinitializing git repository...${NC}"
+if [ -d ".git" ]; then
+    rm -rf .git
+    git init -q
+    git add -A
+    git commit -q -m "chore: initialize ${NEW_NAME} from iOS template"
+    echo -e "${GREEN}   Created fresh git repository with initial commit${NC}"
+else
+    echo -e "${YELLOW}   No .git directory found, skipping${NC}"
+fi
+
+# 8. Clean build artifacts
 echo -e "${BLUE}→ Cleaning build artifacts...${NC}"
 rm -rf build/
 rm -rf DerivedData/
@@ -122,6 +134,7 @@ echo "  2. Verify scheme is set to ${NEW_NAME}"
 echo "  3. Run: ./scripts/build.sh"
 echo "  4. Run: ./scripts/install.sh"
 echo ""
-echo -e "${YELLOW}⚠️  Recommendation: Create a new git commit after customization${NC}"
-echo "     git add -A"
-echo "     git commit -m \"chore: customize template for ${NEW_NAME}\""
+echo -e "${BLUE}Git repository initialized with clean history.${NC}"
+echo "To add a remote:"
+echo "  git remote add origin <your-repo-url>"
+echo "  git push -u origin main"
